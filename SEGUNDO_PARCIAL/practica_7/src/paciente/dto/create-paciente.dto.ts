@@ -8,12 +8,13 @@ export class CreatePacienteDto {
 
     @IsString()
     @IsNotEmpty()
-    nombre: string;
+    CI_paciente: string;
+
 
     @IsString()
-    @IsNotEmpty()
-    CI_paciente: string;
-    
+    @MinLength(1)
+    nombre: string;
+
     @IsString()
     @IsNotEmpty()
     estado: string;

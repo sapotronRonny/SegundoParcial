@@ -12,7 +12,7 @@ import { TestModule } from './test/test.module';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
     type: 'postgres',
-  
+    port: +process.env.PORT,
     url: process.env.DB_URL,
     autoLoadEntities: true,
     synchronize: false,

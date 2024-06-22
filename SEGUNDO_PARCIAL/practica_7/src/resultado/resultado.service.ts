@@ -19,8 +19,8 @@ export class ResultadoService {
   ) {}
 
   async create(createResultadoDto: CreateResultadoDto): Promise<any> {
-    const paciente = await this.pacienteRepository.findOneBy({ id_paciente: createResultadoDto.id_paciente});
-    const test = await this.testRepository.findOneBy({ id_examen: createResultadoDto.id_examen });
+    const paciente = await this.pacienteRepository.findOneBy({ id_paciente: createResultadoDto.paciente_id});
+    const test = await this.testRepository.findOneBy({ id_examen: createResultadoDto.examen_id });
 
     if (!paciente || !test) {
       throw new Error('paciente o test no encontrada');
@@ -29,7 +29,7 @@ export class ResultadoService {
     const Resultado = this.ResultadoRepository.create({
       ...createResultadoDto,
       paciente: paciente,
-      Test:test,
+      Test: Test,
     });
 
     const savedPreparacion = await this.ResultadoRepository.save(Resultado);
@@ -59,8 +59,8 @@ export class ResultadoService {
       throw new Error('Resultado no encontrado');
     }
 
-    const paciente = await this.pacienteRepository.findOneBy({ id_paciente: updateResultadoDto.id_paciente });
-    const test = await this.testRepository.findOneBy({ id_examen: updateResultadoDto.id_examen  });
+    const paciente = await this.pacienteRepository.findOneBy({ id_paciente: updateResultadoDto.paciente_id });
+    const test = await this.testRepository.findOneBy({ id_examen: updateResultadoDto.examen_id});
 
     if (!paciente || !test) {
       throw new Error('paciente o test no encontrada');

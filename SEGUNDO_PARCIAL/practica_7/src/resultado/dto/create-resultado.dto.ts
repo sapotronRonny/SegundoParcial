@@ -18,12 +18,12 @@ export class CreateResultadoDto {
     observaciones: string;
 
     @IsNumber()
-    @IsOptional()
-    id_paciente: number;
+    @IsNotEmpty()
+    paciente_id: number;
 
     @IsNumber()
-    @IsOptional()
-    id_examen: number;
+    @IsNotEmpty()
+    examen_id: number;
 
     @IsString()
     @IsNotEmpty()
