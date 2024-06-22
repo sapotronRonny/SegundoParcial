@@ -1,12 +1,12 @@
-import {  IsBoolean, IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
+import {  IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from "class-validator";
 
 export class CreatePacienteDto {
-    @IsString()
-    @IsNotEmpty()
-    id_paciente?: string;
+
+    @IsNumber()
+    @IsOptional()
+    id_paciente?: number;
 
     @IsString()
-    @MinLength(1)
     @IsNotEmpty()
     CI_paciente: string;
 
@@ -15,7 +15,7 @@ export class CreatePacienteDto {
     @MinLength(1)
     nombre: string;
 
-    @IsBoolean()
+    @IsString()
     @IsNotEmpty()
-    estado: boolean;
+    estado: string;
 }

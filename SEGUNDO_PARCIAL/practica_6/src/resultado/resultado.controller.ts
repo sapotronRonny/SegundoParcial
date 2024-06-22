@@ -3,32 +3,32 @@ import { ResultadoService } from './resultado.service';
 import { CreateResultadoDto } from './dto/create-resultado.dto';
 import { UpdateResultadoDto } from './dto/update-resultado.dto';
 
-@Controller('resultado')
+@Controller('Resultado')
 export class ResultadoController {
-  constructor(private readonly resultadoService: ResultadoService) {}
+  constructor(private readonly ResultadoService: ResultadoService) {}
 
   @Post()
   create(@Body() createResultadoDto: CreateResultadoDto) {
-    return this.resultadoService.create(createResultadoDto);
+    return this.ResultadoService.create(createResultadoDto);
   }
 
   @Get()
   findAll() {
-    return this.resultadoService.findAll();
+    return this.ResultadoService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.resultadoService.findOne(+id);
+    return this.ResultadoService.findOne(+id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateResultadoDto: UpdateResultadoDto) {
-    return this.resultadoService.update(+id, updateResultadoDto);
+    return this.ResultadoService.update(+id, updateResultadoDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.resultadoService.remove(+id);
+    return this.ResultadoService.remove(+id);
   }
 }

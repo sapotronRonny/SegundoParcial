@@ -1,26 +1,24 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-
+import { Resultado } from 'src/resultado/entities/resultado.entity'
 
 
 @Entity({ name: 'Paciente' })
-export class Paciente {
-    @PrimaryGeneratedColumn('uuid')
-    id_paciente: string;
+export class paciente {
+    @PrimaryGeneratedColumn()
+    id_paciente: number;
 
-    @Column('text', {
-        unique: false,
-    })
-    CI_paciente: string;
+    @Column()
+        CI_paciente: string;
+    
+    @Column()
+        nombre: string; 
 
-    @Column('text', {
-        unique: false,
-    })
-    nombre: string;
+    @OneToMany(() => Resultado, resultado => resultado.paciente)
+        resultado: Resultado[];
+       
 
-    @Column('text', {
-        unique: false,
-    })
-    estado: boolean;
 
-    Paciente?: Paciente[]
+    @Column()
+    estado: string;
+    
 }

@@ -3,7 +3,7 @@ import { PacienteService } from './paciente.service';
 import { CreatePacienteDto } from './dto/create-paciente.dto';
 import { UpdatePacienteDto } from './dto/update-paciente.dto';
 
-@Controller('paciente')
+@Controller('Paciente')
 export class PacienteController {
   constructor(private readonly pacienteService: PacienteService) {}
 
@@ -17,18 +17,18 @@ export class PacienteController {
     return this.pacienteService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pacienteService.findOne(+id);
+  @Get(':id_paciente')
+  findOne(@Param('id_paciente') id_paciente: string) {
+    return this.pacienteService.findOne(+id_paciente);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePacienteDto: UpdatePacienteDto) {
-    return this.pacienteService.update(+id, updatePacienteDto);
+  @Patch(':id_paciente')
+  update(@Param('id_paciente') id_paciente: string, @Body() updatePacienteDto: UpdatePacienteDto) {
+    return this.pacienteService.update(+id_paciente, updatePacienteDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.pacienteService.remove(+id);
+  @Delete(':id_paciente')
+  remove(@Param('id_paciente') id_paciente: string) {
+    return this.pacienteService.remove(+id_paciente);
   }
 }
