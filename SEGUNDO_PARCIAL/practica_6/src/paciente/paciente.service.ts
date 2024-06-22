@@ -36,7 +36,7 @@ export class PacienteService {
   }
 
   async remove(id: number) {
-    const deleted = await this.ciudadanoRepository.delete(id);
+    const deleted = await this.PacienteRepository.delete(id);
     return deleted;
   }
 }
