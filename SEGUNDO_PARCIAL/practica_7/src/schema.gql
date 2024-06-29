@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TipoDeExaman {
+  id: ID!
+  Descripcion: String!
+  Indicaciones: String!
+  estado: String!
+}
+
+type Resultado {
+  id: Int!
+  Resultado_test: String!
+  valor_paga: Int!
+  observaciones: String!
+  estado: String!
+}
+
+type Paciente {
+  id: ID!
+  nombre: String!
+  CI_paciente: Int!
+  estado: String!
+}
+
+type Query {
+  paciente(id: Int!): Paciente!
+  resultado(id: Int!): Resultado!
+  tipoDeExamen(estado: String): [TipoDeExaman!]!
+  tipoDeExaman(id: Int!): TipoDeExaman!
+}
+
+type Mutation {
+  createPaciente(createPacienteInput: CreatePacienteInput!): Paciente!
+  updatePaciente(updatePacienteInput: UpdatePacienteInput!): Paciente!
+  removePaciente(id: Int!): Paciente!
+  createResultado(createResultadoInput: CreateResultadoInput!): Resultado!
+  updateResultado(updateResultadoInput: UpdateResultadoInput!): Resultado!
+  removeResultado(id: Int!): Resultado!
+  createTipoDeExaman(createTipoDeExamanInput: CreateTipoDeExamanInput!): TipoDeExaman!
+  updateTipoDeExaman(updateTipoDeExamanInput: UpdateTipoDeExamanInput!): TipoDeExaman!
+  removeTipoDeExaman(id: Int!): TipoDeExaman!
+}
+
+input CreatePacienteInput {
+  nombre: String!
+  CI_paciente: Int!
+  estado: String!
+}
+
+input UpdatePacienteInput {
+  nombre: String
+  CI_paciente: Int
+  estado: String
+  id: Int!
+}
+
+input CreateResultadoInput {
+  Resultado_test: String!
+  valor_paga: Int!
+  observaciones: String!
+  paciente_id: Int!
+  examen_id: Int!
+  estado: String!
+}
+
+input UpdateResultadoInput {
+  Resultado_test: String
+  valor_paga: Int
+  observaciones: String
+  paciente_id: Int
+  examen_id: Int
+  estado: String
+  id: Int!
+}
+
+input CreateTipoDeExamanInput {
+  Descripcion: String!
+  Indicaciones: String!
+  estado: String!
+}
+
+input UpdateTipoDeExamanInput {
+  Descripcion: String
+  Indicaciones: String
+  estado: String
+  id: Int!
+}
